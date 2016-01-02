@@ -1,0 +1,1 @@
+Cambiare le relazioni nel db per consentire l'eliminazione di record correlati
