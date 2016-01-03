@@ -1,210 +1,152 @@
-body
-{
-	margin: 0px;
-	font-size: 12px;
-	color: Black;
+body {
 	background-color: #E0E0E0;
-	font-family: Verdana
+	color: Black;
+	font-family: Verdana;
+	font-size: 12px;
+	margin: 0px;
 }
 
-#Testata
-{
+#Testata {
+	background-color: #B0E100;
 	height: 100px;
-	background-color: #B0E100
 }
 
-#Content
-{
-	clear:both;
+#Content {
+	clear: both;
 	padding: 10px
 }
 
 
-#MainMenu
-{
-	height: 30px;
-	border-top: solid 1px black;
+#MainMenu {
+	background-color: #945100;
 	border-bottom: solid 1px black;
-	background-color: #945100
+	border-top: solid 1px black;
+	height: 30px;
 }
 
-#MainMenu .item
-{
-	width: 100px;
+#MainMenu .item {
+	border-right: solid 1px white;
 	float: left;
 	padding: 10% 0% 10% 0%;
 	text-align: center;
 	vertical-align: middle;
-	border-right: solid 1px white
+	width: 100px;
 }
 
 
-.MenuContestuale
-{
-	height: 20px;
+.MenuContestuale {
+	background-color: #749400;
 	font-size: 0.9em;
-	background-color: #749400
+	height: 20px;
 }
 
-.MenuContestuale .item
-{
+.MenuContestuale .item {
 	float: left;
+	margin: 2px 20px 0px 8px;
 	padding: 0%;
 	text-align: center;
+	text-transform: uppercase;
 	vertical-align: middle;
-	margin: 2px 20px 0px 8px;
-	text-transform: uppercase
 }
 
-#MainPanel
-{
+#MainPanel {
 	margin-right: 400px;
 	width: 100%
 }
 
 
-#RightPanel
-{
+#RightPanel {
+	border-left: dashed 2px #749400;
 	float: right;
 	padding: 0px 10px 0px 10px;
-	width: 400px;
-	border-left: dashed 2px #749400	
-	
+	width: 400px;	
 }
 
-H4
-{
-	margin-top: 0px;
-	margin-bottom: 15px;
-	text-transform: uppercase;
+H4 {
+	color: #749400;
 	letter-spacing: 4px;
-	color: #749400
+	margin-bottom: 15px;
+	margin-top: 0px;
+	text-transform: uppercase;
 }
 
-H5
-{
-	margin-bottom: 5px
-}
+H5 { margin-bottom: 5px }
 
 
-.csCercaPaziente
-{
+.csCercaPaziente {
 	background-color: #749400;
-	padding: 10px;
 	border: solid 1px #1F1F1F;
+	padding: 10px;
+	text-align: left;
 	width: 400px;
-	text-align: left
 }
 
-.contextLink
-{
-	margin: 5px 0px 5px 0px
-}
+.contextLink { margin: 5px 0px 5px 0px }
 
-.step
-{
+.step {
+	background-color: White;
+	border-right: dotted 1px #749400;
 	float: left;
-	padding-top: 10px;
+	padding-bottom: 20px;
 	padding-left: 20px;
 	padding-right: 20px;
-	padding-bottom: 20px;
-	border-right: dotted 1px #749400;
-	background-color: White
+	padding-top: 10px;
 }
 
-.stepNoFloat
-{
-	clear: both
-}
+.stepNoFloat { clear: both }
 
-.msgOK
-{
-	color: Green	
-}
+.msgOK { color: Green }
 
-.msgKO
-{
-	color: Red	
-}
+.msgKO { color: Red }
 
-.msgAlert
-{
-	color: Aqua	
-}
+.msgAlert { color: Aqua }
 
 
 /* AREA FORM ---------------------------------------------------------------------- */
-TABLE
-{
+
+TABLE {
+	border: solid 1px #1F1F1F;
 	font-size: 1.em;
-	border: solid 1px #1F1F1F
 }
 
-.trHeader
-{
+.trHeader {
 	background-color: #005D82;
 	color: #E0E0E0;
+	font-size: 0.8em;
+	font-weight: bold;
 	text-align: center;
 	text-transform: uppercase;
-	font-size: 0.8em;
-	font-weight: bold
 }
 
-.tdHeader
-{
-	padding: 4px
-}
+.tdHeader { padding: 4px }
 
-.tdHeader A, .tdHeader A:link, .tdHeader A:visited, .tdHeader A:active, .tdHeader A:hover
-{
-	font-weight: bold
-}
+.tdHeader A, .tdHeader A:link, .tdHeader A:visited, .tdHeader A:active, .tdHeader A:hover { font-weight: bold }
 
 
-.rowD
-{
-	background-color: White
-}
+.rowD { background-color: White }
 
-.rowP
-{
-	background-color: #B8C8E1
-}
+.rowP { background-color: #B8C8E1 }
 
 
 
 
 /* AREA FORM ---------------------------------------------------------------------- */
 
-.bloccoForm
-{
-	margin: 0px 0px 10px 0px
-}
+.bloccoForm { margin: 0px 0px 10px 0px }
 
-.bloccoForm .etichetta
-{
-	width: 150px
-}
+.bloccoForm .etichetta { width: 150px }
 
-.bloccoForm .etichettaShow
-{
-	font-style: italic
-}
+.bloccoForm .etichettaShow { font-style: italic }
 
-.bloccoSubmit
-{
-	margin: 10px 0px 0px 10px
-}
+.bloccoSubmit { margin: 10px 0px 0px 10px }
 
-.button
-{
+.button {
 	background-color: #945100;
 	border: solid 1px #1F1F1F;
-	color: White	
+	color: White
 }
 
-.csMemo
-{
+.csMemo {
 	/* width: 70% 
 	overflow: scroll;
 	width: 100%;
@@ -215,75 +157,72 @@ TABLE
 
 
 /* AREA LINK ---------------------------------------------------------------------- */
-#MainMenu A, .MenuContestuale A
-{
-   text-decoration: none;
-   font-weight: normal
-}
-#MainMenu A:link, .MenuContestuale A:link
-{
-   color: #fff;
-   background-color: transparent;
-   font-weight: normal
 
-}
-#MainMenu A:visited, .MenuContestuale A:visited
-{
-   color: #fff;
-   background-color: transparent;
-   font-weight: normal
-}
-#MainMenu A:active, .MenuContestuale A:active
-{
-   color: #fff;
-   background-color: transparent;
-   font-weight: normal
-}
-#MainMenu A:hover, .MenuContestuale A:hover
-{
-   color: #fff;
-   background-color: transparent;
-   font-weight: normal
+#MainMenu A, .MenuContestuale A {
+	font-weight: normal;
+	text-decoration: none;
 }
 
-.MenuContestuale A:hover
-{
-   color: #E07B00;
-   background-color: transparent;
-   font-weight: normal
+#MainMenu A:link, .MenuContestuale A:link {
+	background-color: transparent;
+	color: #fff;
+	font-weight: normal
+}
+
+#MainMenu A:visited, .MenuContestuale A:visited {
+	background-color: transparent;
+	color: #fff;
+	font-weight: normal
+}
+
+#MainMenu A:active, .MenuContestuale A:active {
+	background-color: transparent;
+	color: #fff;
+	font-weight: normal
+}
+
+#MainMenu A:hover, .MenuContestuale A:hover {
+	background-color: transparent;
+	color: #fff;
+	font-weight: normal
+}
+
+.MenuContestuale A:hover {
+	background-color: transparent;
+	color: #E07B00;
+	font-weight: normal
 }
 
 
 
 
 /* AREA LINK ---------------------------------------------------------------------- */
-A
-{
-   text-decoration: none;
-   font-weight: normal
-}
-A:link
-{
-   color: #945100;
-   background-color: transparent;
-   font-weight: normal
 
+A {
+	font-weight: normal;
+	text-decoration: none;
 }
-A:visited
-{
-   color: #945100;
-   background-color: transparent;
-   font-weight: normal
+
+A:link {
+	background-color: transparent;
+	color: #945100;
+	font-weight: normal
 }
-A:active
-{
-   color: #945100;
-   background-color: transparent;
-   font-weight: normal
+
+A:visited {
+	background-color: transparent;
+	color: #945100;
+	font-weight: normal
 }
-A:hover
-{
-   color: #E07B00;
-   background-color: transparent;
-   font-weight: normal
+
+A:active {
+	background-color: transparent;
+	color: #945100;
+	font-weight: normal
+}
+
+A:hover {
+	background-color: transparent;
+	color: #E07B00;
+	font-weight: normal
 }

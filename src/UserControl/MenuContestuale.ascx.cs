@@ -1,40 +1,32 @@
+using System;
+using System.Collections;
+
 namespace Steve.UserControl
 {
-	using System;
-	using System.Data;
-	using System.Drawing;
-	using System.Web;
-	using System.Web.UI.WebControls;
-	using System.Web.UI.HtmlControls;
-
 	/// <summary>
-	///		Summary description for MenuContestuale.
+	///   Summary description for MenuContestuale.
 	/// </summary>
 	public partial class MenuContestuale : System.Web.UI.UserControl
 	{
+		private ArrayList _Links;
 
-
-		private System.Collections.ArrayList _Links;
-		public System.Collections.ArrayList Links{
-			set{ _Links = value; }
+		public ArrayList Links
+		{
+			set { _Links = value; }
 		}
 
-
-
-		protected void Page_Load(object sender, System.EventArgs e)
+		protected void Page_Load(object sender, EventArgs e)
 		{
 		}
 
-		protected void Page_PreRender(object sender, System.EventArgs e) {
-
-			if(_Links != null){
-
-
+		protected void Page_PreRender(object sender, EventArgs e)
+		{
+			if (_Links != null)
+			{
 				rptLinks.DataSource = _Links;
 				rptLinks.DataBind();
 
 				divMenuContestuale.Visible = true;
-
 
 
 //				foreach( Object obj in arl ){
@@ -47,13 +39,16 @@ namespace Steve.UserControl
 //					pnMenuContestuale.Controls.Add(hl);
 //					pnMenuContestuale.Controls.Add( new LiteralControl("]  ") );
 //				}
-			}else{
+			}
+			else
+			{
 				divMenuContestuale.Visible = false;
 			}
 		}
 
 		#region Web Form Designer generated code
-		override protected void OnInit(EventArgs e)
+
+		protected override void OnInit(EventArgs e)
 		{
 			//
 			// CODEGEN: This call is required by the ASP.NET Web Form Designer.
@@ -61,14 +56,15 @@ namespace Steve.UserControl
 			InitializeComponent();
 			base.OnInit(e);
 		}
-		
+
 		/// <summary>
-		///		Required method for Designer support - do not modify
-		///		the contents of this method with the code editor.
+		///   Required method for Designer support - do not modify
+		///   the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent()
 		{
 		}
+
 		#endregion
 	}
 }

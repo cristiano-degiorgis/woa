@@ -1,8 +1,5 @@
-using System;
-
 namespace Steve
 {
-
 	public enum eAzioni
 	{
 		Indefinita,
@@ -13,7 +10,8 @@ namespace Steve
 		Edit
 	}
 
-	public enum eSteps {
+	public enum eSteps
+	{
 		Indefinito,
 		Paziente,
 		AnamnesiRemota,

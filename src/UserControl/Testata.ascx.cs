@@ -1,25 +1,20 @@
+using System;
+
 namespace Steve.UserControl
 {
-	using System;
-	using System.Data;
-	using System.Drawing;
-	using System.Web;
-	using System.Web.UI.WebControls;
-	using System.Web.UI.HtmlControls;
-
 	/// <summary>
-	///		Summary description for Testata.
+	///   Summary description for Testata.
 	/// </summary>
 	public partial class Testata : System.Web.UI.UserControl
 	{
-
-		protected void Page_Load(object sender, System.EventArgs e)
+		protected void Page_Load(object sender, EventArgs e)
 		{
 			// Put user code to initialize the page here
 		}
 
 		#region Web Form Designer generated code
-		override protected void OnInit(EventArgs e)
+
+		protected override void OnInit(EventArgs e)
 		{
 			//
 			// CODEGEN: This call is required by the ASP.NET Web Form Designer.
@@ -27,14 +22,15 @@ namespace Steve.UserControl
 			InitializeComponent();
 			base.OnInit(e);
 		}
-		
+
 		/// <summary>
-		///		Required method for Designer support - do not modify
-		///		the contents of this method with the code editor.
+		///   Required method for Designer support - do not modify
+		///   the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent()
 		{
 		}
+
 		#endregion
 	}
 }

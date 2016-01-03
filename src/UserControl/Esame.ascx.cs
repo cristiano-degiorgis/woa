@@ -1,48 +1,27 @@
+using System;
+using System.Web;
 using Steve.SqlLite;
 
 namespace Steve.UserControl
 {
-	using System;
-	using System.Data;
-	using System.Drawing;
-	using System.Web;
-	using System.Web.UI.WebControls;
-	using System.Web.UI.HtmlControls;
-
-
 	/// <summary>
-	///		Summary description for Esame.
+	///   Summary description for Esame.
 	/// </summary>
 	public partial class Esame : BaseUserControl, IBaseUserControl
 	{
+		private Delegate _DelMenuContestuale;
 
-		private System.Delegate _DelMenuContestuale;
-
-		public System.Delegate GestioneMenuContestuale {
-			set{ _DelMenuContestuale = value;}
+		public Delegate GestioneMenuContestuale
+		{
+			set { _DelMenuContestuale = value; }
 		}
 
-		protected void Page_Load(object sender, System.EventArgs e){
-			if(!Page.IsPostBack)
-				PopolaOggettiForm();
+		public void CaricaDati()
+		{
+			var esame = EsameDB.GetEsame(Convert.ToInt32(Chiave));
 
-			CaricaDati();
-		}
-
-		public void PopolaOggettiForm(){
-			ddlTipo.DataSource = EsameDB.ListTipi();
-			ddlTipo.DataTextField = "descrizione";
-			ddlTipo.DataValueField = "ID";
-
-			ListItem li = ddlTipo.Items[0];
-			ddlTipo.DataBind();
-			ddlTipo.Items.Insert(0,li);
-		}
-
-		public void CaricaDati(){
-			Steve.Esame esame = EsameDB.GetEsame(Convert.ToInt32(Chiave));
-
-			switch(Azione){
+			switch (Azione)
+			{
 				case eAzioni.Insert:
 					txtData.Text = DateTime.Today.ToString("d");
 					cmdSalva.Text = "Inserisci >>";
@@ -53,7 +32,7 @@ namespace Steve.UserControl
 
 				case eAzioni.Update:
 					ddlTipo.Items.FindByValue(esame.Tipo.ToString()).Selected = true;
-					txtDescrizione.Text = HttpUtility.HtmlDecode( esame.Descrizione );
+					txtDescrizione.Text = HttpUtility.HtmlDecode(esame.Descrizione);
 					txtData.Text = esame.Data.ToString("d");
 
 					cmdSalva.Text = "Aggiorna >>";
@@ -63,16 +42,21 @@ namespace Steve.UserControl
 					break;
 
 				case eAzioni.Show:
-					if(esame == null){
-						hlAdd.NavigateUrl = String.Format( "~/App/master.aspx?chiave={0}&azione={1}&uc={2}", -1, eAzioni.Insert, eSteps.AnamnesiRemota );
+					if (esame == null)
+					{
+						hlAdd.NavigateUrl = string.Format("~/App/master.aspx?chiave={0}&azione={1}&uc={2}", -1, eAzioni.Insert,
+							eSteps.AnamnesiRemota);
 						pnIsNull.Visible = true;
 						//Server.Transfer(  );
-					}else{
+					}
+					else
+					{
 						lblData.Text = esame.Data.ToString("d");
 						lblDescrizione.Text = esame.Descrizione;
 						lblTipo.Text = ddlTipo.Items.FindByValue(esame.Tipo.ToString()).Text;
 
-						hlUpd.NavigateUrl = String.Format( "~/App/master.aspx?chiave={0}&azione={1}&uc={2}", Chiave, eAzioni.Update, eSteps.Esame );
+						hlUpd.NavigateUrl = string.Format("~/App/master.aspx?chiave={0}&azione={1}&uc={2}", Chiave, eAzioni.Update,
+							eSteps.Esame);
 
 						pnShow.Visible = true;
 					}
@@ -80,26 +64,29 @@ namespace Steve.UserControl
 			}
 		}
 
-
-		public void Salva_Dati(object sender, System.EventArgs e) {
-
+		public void Salva_Dati(object sender, EventArgs e)
+		{
 			//eAzioni azione = (eAzioni)Enum.Parse(typeof(eAzioni),((Button)sender).CommandArgument);
 			Steve.Esame esame = null;
-			if(Azione == eAzioni.Insert){
+			if (Azione == eAzioni.Insert)
+			{
 				esame = new Steve.Esame();
 				esame.IdPaziente = Paziente1.ID;
 				esame.IdConsulto = IdConsulto;
-			}else if(Azione == eAzioni.Update){
-				esame = EsameDB.GetEsame( Convert.ToInt32(Chiave) );
+			}
+			else if (Azione == eAzioni.Update)
+			{
+				esame = EsameDB.GetEsame(Convert.ToInt32(Chiave));
 			}
 
-			esame.Data = DateTime.Parse( txtData.Text );
+			esame.Data = DateTime.Parse(txtData.Text);
 			esame.Descrizione = HttpUtility.HtmlEncode(txtDescrizione.Text);
-			esame.Tipo = Int32.Parse(ddlTipo.SelectedItem.Value);
+			esame.Tipo = int.Parse(ddlTipo.SelectedItem.Value);
 
-			string sMsg = "Operazione avvenuta con successo";
+			var sMsg = "Operazione avvenuta con successo";
 
-			if( EsameDB.SalvaDati( ref esame, ref sMsg) ){
+			if (EsameDB.SalvaDati(ref esame, ref sMsg))
+			{
 				lblMsg.CssClass = "msgOK";
 
 				pnEditing.Visible = false;
@@ -123,18 +110,38 @@ namespace Steve.UserControl
 //			
 //					_DelMenuContestuale.DynamicInvoke(aObj);
 //				}
-
-			}else{
+			}
+			else
+			{
 				lblMsg.CssClass = "msgKO";
 			}
 
 			lblMsg.Text = sMsg;
-			lblMsg.Visible  = true;
+			lblMsg.Visible = true;
+		}
 
+		protected void Page_Load(object sender, EventArgs e)
+		{
+			if (!Page.IsPostBack)
+				PopolaOggettiForm();
+
+			CaricaDati();
+		}
+
+		public void PopolaOggettiForm()
+		{
+			ddlTipo.DataSource = EsameDB.ListTipi();
+			ddlTipo.DataTextField = "descrizione";
+			ddlTipo.DataValueField = "ID";
+
+			var li = ddlTipo.Items[0];
+			ddlTipo.DataBind();
+			ddlTipo.Items.Insert(0, li);
 		}
 
 		#region Web Form Designer generated code
-		override protected void OnInit(EventArgs e)
+
+		protected override void OnInit(EventArgs e)
 		{
 			//
 			// CODEGEN: This call is required by the ASP.NET Web Form Designer.
@@ -142,15 +149,15 @@ namespace Steve.UserControl
 			InitializeComponent();
 			base.OnInit(e);
 		}
-		
+
 		/// <summary>
-		///		Required method for Designer support - do not modify
-		///		the contents of this method with the code editor.
+		///   Required method for Designer support - do not modify
+		///   the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent()
 		{
-
 		}
+
 		#endregion
 	}
 }

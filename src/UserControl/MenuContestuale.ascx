@@ -3,9 +3,8 @@
 	<asp:Repeater id="rptLinks" Runat="server">
 		<ItemTemplate>
 			<div class="item">
-				<a href="<%# DataBinder.Eval(Container.DataItem, "Url") %>"><%# DataBinder.Eval(Container.DataItem, "Text") %></a></div>
+				<a href="<%# DataBinder.Eval(Container.DataItem, "Url") %>"><%# DataBinder.Eval(Container.DataItem, "Text") %></a>
+			</div>
 		</ItemTemplate>
-	</asp:Repeater>	
+	</asp:Repeater>
 </div>
-
-

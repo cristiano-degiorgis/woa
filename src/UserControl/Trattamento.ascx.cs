@@ -1,40 +1,29 @@
+using System;
+using System.Web;
+using System.Web.UI.WebControls;
+
 namespace Steve.UserControl
 {
-	using System;
-	using System.Data;
-	using System.Drawing;
-	using System.Web;
-	using System.Web.UI.WebControls;
-	using System.Web.UI.HtmlControls;
-
-
 	/// <summary>
-	///		Summary description for Esame.
+	///   Summary description for Esame.
 	/// </summary>
 	public partial class Trattamento : BaseUserControl, IBaseUserControl
 	{
-		protected System.Web.UI.WebControls.DropDownList ddlTipo;
-		protected System.Web.UI.WebControls.Label lblTipo;
+		private Delegate _DelMenuContestuale;
+		protected DropDownList ddlTipo;
+		protected Label lblTipo;
 
-		private System.Delegate _DelMenuContestuale;
-
-		public System.Delegate GestioneMenuContestuale {
-			set{ _DelMenuContestuale = value;}
+		public Delegate GestioneMenuContestuale
+		{
+			set { _DelMenuContestuale = value; }
 		}
 
-		protected void Page_Load(object sender, System.EventArgs e){
-//			if(!Page.IsPostBack)
-//				PopolaOggettiForm();
+		public void CaricaDati()
+		{
+			var trattamento = TrattamentoDB.GetTrattamento(Convert.ToInt32(Chiave));
 
-			CaricaDati();
-		}
-
-		public void PopolaOggettiForm(){}
-
-		public void CaricaDati(){
-			Steve.Trattamento trattamento = TrattamentoDB.GetTrattamento(Convert.ToInt32(Chiave));
-
-			switch(Azione){
+			switch (Azione)
+			{
 				case eAzioni.Insert:
 					txtData.Text = DateTime.Today.ToString("d");
 					cmdSalva.Text = "Inserisci >>";
@@ -44,7 +33,7 @@ namespace Steve.UserControl
 					break;
 
 				case eAzioni.Update:
-					txtDescrizione.Text = HttpUtility.HtmlDecode( trattamento.Descrizione );
+					txtDescrizione.Text = HttpUtility.HtmlDecode(trattamento.Descrizione);
 					txtData.Text = trattamento.Data.ToString("d");
 
 					cmdSalva.Text = "Aggiorna >>";
@@ -54,15 +43,20 @@ namespace Steve.UserControl
 					break;
 
 				case eAzioni.Show:
-					if(trattamento == null){
-						hlAdd.NavigateUrl = String.Format( "~/App/master.aspx?chiave={0}&azione={1}&uc={2}", -1, eAzioni.Insert, eSteps.Trattamento );
+					if (trattamento == null)
+					{
+						hlAdd.NavigateUrl = string.Format("~/App/master.aspx?chiave={0}&azione={1}&uc={2}", -1, eAzioni.Insert,
+							eSteps.Trattamento);
 						pnIsNull.Visible = true;
 						//Server.Transfer(  );
-					}else{
+					}
+					else
+					{
 						lblData.Text = trattamento.Data.ToString("d");
 						lblDescrizione.Text = trattamento.Descrizione;
 
-						hlUpd.NavigateUrl = String.Format( "~/App/master.aspx?chiave={0}&azione={1}&uc={2}", Chiave, eAzioni.Update, eSteps.Trattamento );
+						hlUpd.NavigateUrl = string.Format("~/App/master.aspx?chiave={0}&azione={1}&uc={2}", Chiave, eAzioni.Update,
+							eSteps.Trattamento);
 
 						pnShow.Visible = true;
 					}
@@ -70,25 +64,29 @@ namespace Steve.UserControl
 			}
 		}
 
-
-		public void Salva_Dati(object sender, System.EventArgs e) {
+		public void Salva_Dati(object sender, EventArgs e)
+		{
 			//eAzioni azione = (eAzioni)Enum.Parse(typeof(eAzioni),((Button)sender).CommandArgument);
 			Steve.Trattamento trattamento = null;
 
-			if(Azione == eAzioni.Insert){
+			if (Azione == eAzioni.Insert)
+			{
 				trattamento = new Steve.Trattamento();
 				trattamento.IdPaziente = Paziente1.ID;
 				trattamento.IdConsulto = IdConsulto;
-			}else if(Azione == eAzioni.Update){
-				trattamento = TrattamentoDB.GetTrattamento( Convert.ToInt32(Chiave) );
+			}
+			else if (Azione == eAzioni.Update)
+			{
+				trattamento = TrattamentoDB.GetTrattamento(Convert.ToInt32(Chiave));
 			}
 
-			trattamento.Data = DateTime.Parse( txtData.Text );
+			trattamento.Data = DateTime.Parse(txtData.Text);
 			trattamento.Descrizione = HttpUtility.HtmlEncode(txtDescrizione.Text);
 
-			string sMsg = "Operazione avvenuta con successo";
+			var sMsg = "Operazione avvenuta con successo";
 
-			if( TrattamentoDB.SalvaDati( ref trattamento, ref sMsg) ){
+			if (TrattamentoDB.SalvaDati(ref trattamento, ref sMsg))
+			{
 				lblMsg.CssClass = "msgOK";
 
 				pnEditing.Visible = false;
@@ -106,18 +104,31 @@ namespace Steve.UserControl
 //			
 //					_DelMenuContestuale.DynamicInvoke(aObj);
 //				}
-
-			}else{
+			}
+			else
+			{
 				lblMsg.CssClass = "msgKO";
 			}
 
 			lblMsg.Text = sMsg;
-			lblMsg.Visible  = true;
+			lblMsg.Visible = true;
+		}
 
+		protected void Page_Load(object sender, EventArgs e)
+		{
+//			if(!Page.IsPostBack)
+//				PopolaOggettiForm();
+
+			CaricaDati();
+		}
+
+		public void PopolaOggettiForm()
+		{
 		}
 
 		#region Web Form Designer generated code
-		override protected void OnInit(EventArgs e)
+
+		protected override void OnInit(EventArgs e)
 		{
 			//
 			// CODEGEN: This call is required by the ASP.NET Web Form Designer.
@@ -125,15 +136,15 @@ namespace Steve.UserControl
 			InitializeComponent();
 			base.OnInit(e);
 		}
-		
+
 		/// <summary>
-		///		Required method for Designer support - do not modify
-		///		the contents of this method with the code editor.
+		///   Required method for Designer support - do not modify
+		///   the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent()
 		{
-
 		}
+
 		#endregion
 	}
 }

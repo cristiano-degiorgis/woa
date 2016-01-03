@@ -5,14 +5,13 @@ using System.Data;
 using System.Data.SQLite;
 using System.Text;
 
-
 namespace Steve.SqlLite
 {
 	public class PazienteDB
 	{
 		public static bool IsNuovo(string nome, string cognome)
 		{
-			System.Text.StringBuilder sb = new System.Text.StringBuilder();
+			var sb = new StringBuilder();
 			sb.Append("SELECT ");
 			sb.Append("count(*)");
 			sb.Append(" FROM ");
@@ -32,25 +31,24 @@ namespace Steve.SqlLite
 			using (var dbConnection = new SQLiteConnection(ConfigurationSettings.AppSettings["strConn"]))
 			{
 				dbConnection.Open();
-				string sql = sb.ToString();
+				var sql = sb.ToString();
 				using (var command = new SQLiteCommand(sql, dbConnection))
 				{
-					Object res = command.ExecuteScalar(CommandBehavior.CloseConnection);
+					var res = command.ExecuteScalar(CommandBehavior.CloseConnection);
 
 					return (Convert.ToInt32(res) == 0) ? true : false;
 				}
 			}
 		}
 
-
 		public static DataTable PazientiList()
 		{
-			return PazienteDB.PazientiList("", "");
+			return PazientiList("", "");
 		}
 
-		public static Steve.Paziente GetPaziente(int id)
+		public static Paziente GetPaziente(int id)
 		{
-			System.Text.StringBuilder sb = new System.Text.StringBuilder();
+			var sb = new StringBuilder();
 			sb.Append("SELECT ");
 			sb.Append("*");
 			sb.Append(" FROM ");
@@ -65,7 +63,7 @@ namespace Steve.SqlLite
 				paziente.ID = id;
 				paziente.Nome = reader["nome"].ToString();
 				paziente.Cognome = reader["cognome"].ToString();
-				paziente.DataNascita = (DateTime)reader["data_nascita"];
+				paziente.DataNascita = (DateTime) reader["data_nascita"];
 				paziente.Professione = reader["professione"].ToString();
 				paziente.Indirizzo = reader["indirizzo"].ToString();
 				paziente.Citta = reader["citta"].ToString();
@@ -80,12 +78,10 @@ namespace Steve.SqlLite
 			return paziente;
 		}
 
-
 		public static DataTable PazientiList(string nome, string cognome)
 		{
-
 			bool bNome = false, bCognome = false;
-			System.Text.StringBuilder sb = new System.Text.StringBuilder();
+			var sb = new StringBuilder();
 			sb.Append("SELECT ");
 			sb.Append("*");
 			sb.Append(" FROM ");
@@ -134,19 +130,18 @@ namespace Steve.SqlLite
 					new MySqlLiteParameter("@cellulare", DbType.String, paziente.Cellulare),
 					new MySqlLiteParameter("@email", DbType.String, paziente.Email)
 				};
-				
 
 
-			if (paziente.ID == -1)
-			{
-						sb.Append("INSERT INTO ");
-						sb.Append("paziente");
-						sb.Append(
-							"( nome, cognome, data_nascita, professione, indirizzo, citta, prov, cap, telefono, cellulare, email )");
-						sb.Append(" VALUES ");
-						sb.Append(
-							"( @nome, @cognome, @data_nascita, @professione, @indirizzo, @citta, @provincia, @cap, @telefono, @cellulare, @email )");
-				
+				if (paziente.ID == -1)
+				{
+					sb.Append("INSERT INTO ");
+					sb.Append("paziente");
+					sb.Append(
+						"( nome, cognome, data_nascita, professione, indirizzo, citta, prov, cap, telefono, cellulare, email )");
+					sb.Append(" VALUES ");
+					sb.Append(
+						"( @nome, @cognome, @data_nascita, @professione, @indirizzo, @citta, @provincia, @cap, @telefono, @cellulare, @email )");
+
 					int newID;
 					SqlLiteHelper.Insert(sb.ToString(), arParams, out newID);
 					paziente.ID = newID;
@@ -176,7 +171,7 @@ namespace Steve.SqlLite
 					SqlLiteHelper.Update(sb.ToString(), arParams);
 				}
 
-			bResult = true;
+				bResult = true;
 			}
 			catch (Exception ex)
 			{
@@ -189,7 +184,7 @@ namespace Steve.SqlLite
 
 		public static bool Elimina(int idPaziente, ref string sMsg)
 		{
-			bool bResult = false;
+			var bResult = false;
 			try
 			{
 				SqlLiteHelper.Delete(idPaziente);
@@ -204,5 +199,4 @@ namespace Steve.SqlLite
 			return bResult;
 		}
 	}
-
 }

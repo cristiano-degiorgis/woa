@@ -2,21 +2,18 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SQLite;
+using System.Text;
 
 namespace Steve.SqlLite
 {
 	/// <summary>
-	/// Summary description for DbAccess.
+	///   Summary description for DbAccess.
 	/// </summary>
-
-
-
 	public class GlobalDB
 	{
 		public static int GetNewID(string tableName)
 		{
-
-			System.Text.StringBuilder sb = new System.Text.StringBuilder();
+			var sb = new StringBuilder();
 
 			sb.Append("SELECT ");
 			sb.Append("max(ID)");
@@ -28,32 +25,30 @@ namespace Steve.SqlLite
 			using (var dbConnection = new SQLiteConnection(ConfigurationSettings.AppSettings["strConn"]))
 			{
 				dbConnection.Open();
-				string sql = sb.ToString();
+				var sql = sb.ToString();
 				using (var command = new SQLiteCommand(sql, dbConnection))
 				{
-					Object res = command.ExecuteScalar(CommandBehavior.CloseConnection);
+					var res = command.ExecuteScalar(CommandBehavior.CloseConnection);
 
 					return (res != DBNull.Value) ? Convert.ToInt32(res) + 1 : 1;
 				}
 			}
 		}
 
-
 		public static DataTable ListProvince()
 		{
-			DataSet ds = new DataSet();
+			var ds = new DataSet();
 
 			using (var dbConnection = new SQLiteConnection(ConfigurationSettings.AppSettings["strConn"]))
-			//var dbConnection = new SQLiteConnection(ConfigurationSettings.AppSettings["strConn"]);
+				//var dbConnection = new SQLiteConnection(ConfigurationSettings.AppSettings["strConn"]);
 			{
 				dbConnection.Open();
-				string sql = "SELECT sigla, descrizione FROM lkp_provincia ORDER BY descrizione";
+				var sql = "SELECT sigla, descrizione FROM lkp_provincia ORDER BY descrizione";
 				using (var command = new SQLiteCommand(sql, dbConnection))
 				{
 					//return command.ExecuteReader(CommandBehavior.CloseConnection);
 					using (var myAdapter = new SQLiteDataAdapter(command))
 					{
-
 						myAdapter.Fill(ds);
 					}
 				}
@@ -70,19 +65,18 @@ namespace Steve.SqlLite
 
 			try
 			{
-
-				System.Text.StringBuilder sb = new System.Text.StringBuilder();
+				var sb = new StringBuilder();
 
 				sb.Append("SELECT ");
 				sb.Append("count(ID)");
 				sb.Append(" FROM ");
 				sb.Append("paziente");
 
-				Object res = null;
+				object res = null;
 				using (var dbConnection = new SQLiteConnection(ConfigurationSettings.AppSettings["strConn"]))
 				{
 					dbConnection.Open();
-					string sql = sb.ToString();
+					var sql = sb.ToString();
 					using (var command = new SQLiteCommand(sql, dbConnection))
 					{
 						res = command.ExecuteScalar(CommandBehavior.CloseConnection);

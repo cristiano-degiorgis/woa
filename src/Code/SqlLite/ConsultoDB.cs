@@ -77,7 +77,7 @@ namespace Steve.SqlLite
 				consulto = new Consulto();
 				consulto.ID = id;
 				consulto.Data = (DateTime) reader["data"];
-				consulto.IdPaziente = (int)(long) reader["id_paziente"];
+				consulto.IdPaziente = (int) (long) reader["id_paziente"];
 				consulto.ProblemaIniziale = reader["problema_iniziale"].ToString();
 			});
 

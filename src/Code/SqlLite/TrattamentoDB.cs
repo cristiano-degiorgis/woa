@@ -80,8 +80,8 @@ namespace Steve
 				trattamento.ID = id;
 				trattamento.Data = (DateTime) reader["data"];
 				trattamento.Descrizione = reader["descrizione"].ToString();
-				trattamento.IdPaziente = (int)(long)reader["ID_paziente"];
-				trattamento.IdConsulto = (int)(long)reader["ID_consulto"];
+				trattamento.IdPaziente = (int) (long) reader["ID_paziente"];
+				trattamento.IdConsulto = (int) (long) reader["ID_consulto"];
 			});
 
 			return trattamento;

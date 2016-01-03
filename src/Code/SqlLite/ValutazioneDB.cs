@@ -76,7 +76,7 @@ namespace Steve
 			sb.Append("valutazione");
 			sb.Append(" WHERE ");
 			sb.Append("ID=" + id);
-			
+
 			Valutazione valutazione = null;
 
 			SqlLiteHelper.FillEntity(sb.ToString(), reader =>
@@ -86,8 +86,8 @@ namespace Steve
 				valutazione.Strutturale = reader["strutturale"].ToString();
 				valutazione.CranioSacrale = reader["cranio_sacrale"].ToString();
 				valutazione.AkOrtodontica = reader["ak_ortodontica"].ToString();
-				valutazione.IdPaziente = (int)(long)reader["ID_paziente"];
-				valutazione.IdConsulto = (int)(long)reader["ID_consulto"];
+				valutazione.IdPaziente = (int) (long) reader["ID_paziente"];
+				valutazione.IdConsulto = (int) (long) reader["ID_consulto"];
 			});
 
 			return valutazione;

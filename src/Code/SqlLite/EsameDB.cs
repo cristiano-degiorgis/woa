@@ -88,9 +88,9 @@ namespace Steve.SqlLite
 				esame.ID = id;
 				esame.Data = (DateTime) reader["data"];
 				esame.Descrizione = reader["descrizione"].ToString();
-				esame.Tipo = (int)(long)reader["tipo"];
-				esame.IdPaziente = (int)(long)reader["ID_paziente"];
-				esame.IdConsulto = (int)(long)reader["ID_consulto"];
+				esame.Tipo = (int) (long) reader["tipo"];
+				esame.IdPaziente = (int) (long) reader["ID_paziente"];
+				esame.IdConsulto = (int) (long) reader["ID_consulto"];
 			});
 
 			return esame;

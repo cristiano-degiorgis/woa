@@ -1,23 +1,10 @@
-using System;
-
 namespace Steve
 {
 	/// <summary>
-	/// Summary description for OggettiTmp.
+	///   Summary description for OggettiTmp.
 	/// </summary>
 	public class LinkContestuale
 	{
-		private string _Url;
-		private string _Text;
-
-		public string Url{
-			get{ return _Url; }
-		}
-
-		public string Text{
-			get{ return _Text; }
-		}
-
 		public LinkContestuale()
 		{
 			//
@@ -25,9 +12,13 @@ namespace Steve
 			//
 		}
 
-		public LinkContestuale( string url, string text ) {
-			_Url = url;
-			_Text = text;
+		public LinkContestuale(string url, string text)
+		{
+			Url = url;
+			Text = text;
 		}
+
+		public string Url { get; private set; }
+		public string Text { get; private set; }
 	}
 }

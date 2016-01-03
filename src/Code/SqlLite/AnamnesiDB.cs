@@ -153,10 +153,10 @@ namespace Steve.SqlLite
 			{
 				ar = new AnamnesiRemota();
 				ar.ID = id;
-				ar.IdPaziente = (int)(long) reader["id_paziente"];
+				ar.IdPaziente = (int) (long) reader["id_paziente"];
 				ar.Data = (DateTime) reader["data"];
 				ar.Descrizione = reader["descrizione"].ToString();
-				ar.Tipo = (int)(long)reader["tipo"];
+				ar.Tipo = (int) (long) reader["tipo"];
 			});
 
 			return ar;
@@ -177,7 +177,7 @@ namespace Steve.SqlLite
 			{
 				ar = new AnamnesiProssima();
 				ar.IdConsulto = idConsulto;
-				ar.IdPaziente = (int)(long)reader["ID_paziente"];
+				ar.IdPaziente = (int) (long) reader["ID_paziente"];
 				ar.PrimaVolta = reader["prima_volta"].ToString();
 				ar.Tipologia = reader["tipologia"].ToString();
 				ar.Localizzazione = reader["localizzazione"].ToString();
