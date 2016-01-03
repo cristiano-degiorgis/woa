@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
-using System.Data.SQLite;
 using System.Text;
 
 namespace Steve.SqlLite
@@ -28,17 +26,8 @@ namespace Steve.SqlLite
 
 			//Object res = OleDbHelper.ExecuteScalar(ConfigurationSettings.AppSettings["strConn"], CommandType.Text, sb.ToString(), null);
 
-			using (var dbConnection = new SQLiteConnection(ConfigurationSettings.AppSettings["strConn"]))
-			{
-				dbConnection.Open();
-				var sql = sb.ToString();
-				using (var command = new SQLiteCommand(sql, dbConnection))
-				{
-					var res = command.ExecuteScalar(CommandBehavior.CloseConnection);
-
-					return (Convert.ToInt32(res) == 0) ? true : false;
-				}
-			}
+			var res = SqlLiteHelper.ExecuteScalar(sb.ToString());
+			return (Convert.ToInt32(res) == 0) ? true : false;
 		}
 
 		public static DataTable PazientiList()

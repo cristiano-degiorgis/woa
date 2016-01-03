@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !MONO
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -8,19 +9,6 @@ using System.Linq;
 
 namespace Steve.SqlLite
 {
-	public class MySqlLiteParameter
-	{
-		public MySqlLiteParameter(string name, DbType dbType, object value)
-		{
-			Name = name;
-			DbType = dbType;
-			Value = value;
-		}
-
-		public string Name { get; set; }
-		public object Value { get; set; }
-		public DbType DbType { get; set; }
-	}
 
 	public static class SqlLiteHelper
 	{
@@ -120,14 +108,14 @@ namespace Steve.SqlLite
 			return dtCloned;
 		}
 
-		public static DataTable GetLookUpDataTable(string sqlTableName)
+		public static DataTable GetLookUpDataTable(string sqlOrTableName)
 		{
 			var ds = new DataSet();
 
 			using (var dbConnection = new SQLiteConnection(ConfigurationSettings.AppSettings["strConn"]))
 			{
 				dbConnection.Open();
-				var sql = "SELECT * FROM " + sqlTableName;
+				var sql = sqlOrTableName.StartsWith("SELECT")? sqlOrTableName : "SELECT * FROM " + sqlOrTableName;
 				using (var command = new SQLiteCommand(sql, dbConnection))
 				{
 					using (var myAdapter = new SQLiteDataAdapter(command))
@@ -138,6 +126,18 @@ namespace Steve.SqlLite
 			}
 
 			return ds.Tables[0];
+		}
+
+		public static object ExecuteScalar(string sql)
+		{
+			using (var dbConnection = new SQLiteConnection(ConfigurationSettings.AppSettings["strConn"]))
+			{
+				dbConnection.Open();
+				using (var command = new SQLiteCommand(sql, dbConnection))
+				{
+					return command.ExecuteScalar(CommandBehavior.CloseConnection);
+				}
+			}			
 		}
 
 		public static void Delete(int idPaziente)
@@ -179,3 +179,5 @@ namespace Steve.SqlLite
 		}
 	}
 }
+
+#endif

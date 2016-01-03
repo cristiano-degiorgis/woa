@@ -71,6 +71,16 @@
     <DebugType>none</DebugType>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'MONO-4.2.1|AnyCPU'">
+    <OutputPath>bin\mono\</OutputPath>
+    <DefineConstants>TRACE;MONO</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
       <Name>System</Name>
@@ -79,7 +89,10 @@
       <Name>System.Data</Name>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data.SQLite, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+    <Reference Condition="'$(Configuration)'=='MONO-4.2.1'" Include="Mono.Data.Sqlite">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Mono\lib\mono\4.0\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Condition="'$(Configuration)'!='MONO-4.2.1'" Include="System.Data.SQLite, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.99.0\lib\net40\System.Data.SQLite.dll</HintPath>
     </Reference>
@@ -153,8 +166,10 @@
     <Compile Include="Code\OggettiTmp.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Code\SqlLite\MySqlLiteParameter.cs" />
     <Compile Include="Code\SqlLite\PazienteDB.cs" />
-    <Compile Include="Code\SqlLite\SqlLiteHelper.cs" />
+    <Compile Include="Code\SqlLite\SqlLiteHelper-mono.cs" />
+    <Compile Include="Code\SqlLite\SqlLiteHelper-windows.cs" />
     <Compile Include="Code\SqlLite\TrattamentoDB.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -401,7 +416,7 @@
     <PreBuildEvent />
     <PostBuildEvent />
   </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Condition="'$(Configuration)'!='MONO-4.2.1'" Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
