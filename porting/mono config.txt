@@ -1,0 +1,121 @@
+/usr/libexec/apache2/libphp5.so
+
+http://www.mono-project.com/docs/web/mod_mono/
+
+-------------------------------------------------
+http://coolestguidesontheplanet.com/get-apache-mysql-php-phpmyadmin-working-osx-10-10-yosemite/
+
+ 
+--------------------------------------------------
+After installing Mavericks, you need to reinstall the XCode Command Line Tools. 
+This will bring back the /usr/include/apache2 directory. 
+You do this by updating your XCode and then run xcode-select --install.
+
+--------------------------------------------------
+https://cduu.wordpress.com/2011/11/26/install-pkg-config-on-mac-os-x/
+You can download pkg-config here.(http://www.freedesktop.org/wiki/Software/pkg-config/)
+
+MacPorts helps a lot to install command-line, X11 or Aqua based open-source software on the Mac OS X operating system.
+
+You can download MacPorts here. 
+After installing MacPorts unarchive the pkg-config file, open a terminal, switch to the folder and type the following command:	
+    sudo port install pkgconfig
+
+--------------------------------------------------
+http://stackoverflow.com/questions/22657915/how-to-get-mod-mono-so-in-mac-os-x-10-9
+
+I am a novice with mono but followed some instructions. I downloaded and installed everything from here: http://www.go-mono.com/mono-downloads/download.html
+
+To get Apache to work with mod_mono.so I downloaded source from this page: http://download.mono-project.com/sources/mod_mono/
+
+You have to compile it. I went into the unpacked directory and wrote this in termminal:
+
+./configure --prefix=/usr          ***
+make
+sudo make install
+
+This puts the mod_mono.so in correct Apache dir and the mod_mono.conf file. To include it you must add this to your httpd.conf (I put it at the end of the file):
+
+ # mod_mono_configuration                                                  
+ Include /etc/apache2/mod_mono.conf
+ MonoServerPath /Library/Frameworks/Mono.framework/Versions/Current/bin/mod-mono-server4 (mod-mono-server o mod-mono-server2 non va....)
+ 
+ ---- httpd.conf ------
+ 
+ # mod_mono_configuration                                                  
+Include /etc/apache2/mod_mono.conf
+#The configuration defaults to running the 1.0 runtime for applications, 
+#if you want to use the 2.0 runtime, you can just use the MonoServerPath directive to point to the 2.0 server, like this:
+#MonoServerPath /Library/Frameworks/Mono.framework/Versions/Current/bin/mod-mono-server
+MonoServerPath /Library/Frameworks/Mono.framework/Versions/Current/bin/mod-mono-server4
+
+Alias /woa "/Users/cristiano/Sites/woa"
+MonoApplications "/woa:/Users/cristiano/Sites/woa"
+<Location /woa>
+	SetHandler mono
+	DirectoryIndex default.aspx
+	#Options Indexes MultiViews FollowSymLinks
+	#Require all granted
+</Location>
+ 
+ ---- httpd.conf ------
+ 
+ ---------- after installation tests --------
+ ### http://www.mono-project.com/docs/getting-started/mono-basics/
+ 
+### The location of error_log is defined in /etc/apache2/httpd.conf. Run
+ grep '^ErrorLog' /etc/apache2/httpd.conf
+ -->ErrorLog "/private/var/log/apache2/error_log"
+ 
+###  sudo chmod 777 <directory+sqllite db file>
+ 
+### http://tomitrescak.blogspot.it/2010/07/installing-aspnet-with-mono-on-mac.html  (NO)
+ ln -s /path/to/original/ /path/to/link
+ sudo ln -s /Library/Frameworks/Mono.framework/Versions/Current/bin/mod-mono-server /usr/sbin/mod-mono-server
+ sudo ln -s /Library/Frameworks/Mono.framework/Versions/Current/bin/mod-mono-server2 /usr/sbin/mod-mono-server2
+ 
+MonoServerPath /usr/bin/mod-mono-server
+Make sure that contents of /usr/bin/mod-mono-server are pointing to the correct installation of the Mono on your machine 
+(e.g.:  exec /Library/Frameworks/Mono.framework/Versions/2.6.4/bin/mono $MONO_OPTIONS "/Library/Frame...)
+ 
+ 
+/Library/Frameworks/Mono.framework/Versions/Current/bin/mod-mono-server2 
+ 
+Result of *** 
+ Configuration summary for mod_mono
+
+   * Installation prefix = /usr
+   * Apache version = 2.4
+   * Apache modules directory = /usr/libexec/apache2
+   * apxs = /usr/sbin/apxs
+   * apr-config = /usr/bin/apr-1-config
+   * apu-config = /usr/bin/apu-1-config
+   * CFLAGS = -g -O2 -I/usr/include/apache2    -I/usr/include/apr-1    -I/usr/include/apr-1 
+   * Verbose logging (debug) = no
+   * GCOV options used = no
+   * Profiling enabled = no
+   * mono prefix = /usr
+   * Default MonoApplicationsConfigDir = /private/etc/apache2/mod-mono-applications
+   
+----------- stackoverflow
+I'm trying to figure if it's possible to run as is an old asp.net 1.1 app using an mdb file as storage under mac/mono.
+
+I finally configured OSX(Yosemite)+apache2+mono(mod_mono) to have my app running under mac. Now the app shows up, but it does not connect to the db
+current conn string: 
+
+    <add key="strConn" value="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=/FilePAth/MyAccessFile.mdb" /> 
+
+After some reeding seems there's no way to have it run on mac: the only option should run only on linux: http://www.mono-project.com/archived/ole_db/
+
+If so, how do you suggest to proceed? Is there any alternative rather than migrate the access db to a supported mac storage such as mysql?
+
+I do not have a lot of experience under OSX, in case I have to migrate it, what db do you suggest to use in order to:
+
+-  work smoothly under mac+mono
+
+-  easy porting from current ms access db
+
+Any tips are more then welcome!   
+   
+   
+
