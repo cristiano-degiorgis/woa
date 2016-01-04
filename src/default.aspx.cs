@@ -20,12 +20,12 @@ namespace Steve
 			if (bCheckConn)
 			{
 				lblCheckConn.Text = "Numero totali pazienti nel DB: " + numPazienti;
-				lblCheckConn.CssClass = "msgOK";
+				lblCheckConn.CssClass += " label-success";
 			}
 			else
 			{
 				lblCheckConn.Text = numPazienti;
-				lblCheckConn.CssClass = "msgKO";
+				lblCheckConn.CssClass = "label-warning";
 			}
 
 

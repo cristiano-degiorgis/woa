@@ -16,7 +16,8 @@
 		OnItemCreated="Item_Created"
 		Runat="server"
 		HeaderStyle-CssClass="trHeader"
-		AutoGenerateColumns="False">
+		AutoGenerateColumns="False"
+		CssClass="table table-striped table-bordered table-hover table-condensed">
 		<ItemStyle CssClass="rowD"></ItemStyle>
 		<AlternatingItemStyle CssClass="rowP"></AlternatingItemStyle>
 

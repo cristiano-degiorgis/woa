@@ -20,6 +20,8 @@ namespace Steve.App
 			var step = (eSteps) Enum.Parse(typeof (eSteps), Request.QueryString["uc"]);
 			_ControlToLoad1 = (IBaseUserControl) LoadControl("~/UserControl/" + step + ".ascx");
 
+			Paziente1.Visible = step != eSteps.Paziente;
+
 
 			_ControlToLoad1.Azione = (eAzioni) Enum.Parse(typeof (eAzioni), Request.QueryString["azione"]);
 			_ControlToLoad1.Chiave = Request.QueryString["chiave"];

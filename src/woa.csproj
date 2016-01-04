@@ -291,6 +291,13 @@
       <SubType>Form</SubType>
     </Content>
     <Content Include="App\popup\Calendar.aspx" />
+    <Content Include="bootstrap\css\bootstrap-theme.css" />
+    <Content Include="bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="bootstrap\css\bootstrap.css" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap\js\bootstrap.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="css\calendar.css" />
     <Content Include="css\main.css" />
     <Content Include="default.aspx">
@@ -304,6 +311,7 @@
     <Content Include="js\global.js">
       <SubType>UserControl</SubType>
     </Content>
+    <Content Include="js\jquery-1.11.3.min.js" />
     <Content Include="TO_DO.txt" />
     <Content Include="UserControl\AnamnesiProssima.ascx">
       <SubType>UserControl</SubType>
@@ -410,6 +418,21 @@
     <EmbeddedResource Include="UserControl\Valutazione.ascx.resx">
       <DependentUpon>Valutazione.ascx.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="bootstrap\css\bootstrap.css.map" />
+    <Content Include="bootstrap\css\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bootstrap\img\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

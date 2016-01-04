@@ -13,22 +13,22 @@ namespace Steve.UserControl
 
 		protected void Page_PreRender(object sender, EventArgs e)
 		{
-			hlHome.Attributes.Add("onMouseOver", "mOvItemMainMenu(this);");
-			hlHome.Attributes.Add("onMouseOut", "mOutItemMainMenu(this);");
+			//hlHome.Attributes.Add("onMouseOver", "mOvItemMainMenu(this);");
+			//hlHome.Attributes.Add("onMouseOut", "mOutItemMainMenu(this);");
 
 			if (Paziente1 != null)
 			{
 				hlPaziente.NavigateUrl = "~/App/dettagli_paziente.aspx";
-				hlPaziente.Attributes.Add("onMouseOver", "mOvItemMainMenu(this);");
-				hlPaziente.Attributes.Add("onMouseOut", "mOutItemMainMenu(this);");
+				//hlPaziente.Attributes.Add("onMouseOver", "mOvItemMainMenu(this);");
+				//hlPaziente.Attributes.Add("onMouseOut", "mOutItemMainMenu(this);");
 			}
 			//hlPaziente.NavigateUrl = String.Format( "~/App/master.aspx?chiave={0}&azione={1}&uc={2}", Paziente1.ID, eAzioni.Show, eSteps.Paziente );
 
 			if (IdConsulto > 0)
 			{
 				hlConsulto.NavigateUrl = string.Format("~/App/dettagli_consulto.aspx?id_consulto={0}", IdConsulto);
-				hlConsulto.Attributes.Add("onMouseOver", "mOvItemMainMenu(this);");
-				hlConsulto.Attributes.Add("onMouseOut", "mOutItemMainMenu(this);");
+				//hlConsulto.Attributes.Add("onMouseOver", "mOvItemMainMenu(this);");
+				//hlConsulto.Attributes.Add("onMouseOut", "mOutItemMainMenu(this);");
 			}
 				//hlConsulto.NavigateUrl = String.Format( "~/App/master.aspx?chiave={0}&azione={1}&uc={2}", IdConsulto, eAzioni.Show, eSteps.Consulto );
 		}

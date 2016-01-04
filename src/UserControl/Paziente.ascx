@@ -1,86 +1,118 @@
-<%@ Control Language="c#" AutoEventWireup="True" Codebehind="Paziente.ascx.cs" Inherits="Steve.UserControl.Paziente" TargetSchema="http://schemas.microsoft.com/intellisense/ie5"%>
+<%@ Control Language="c#" AutoEventWireup="True" CodeBehind="Paziente.ascx.cs" Inherits="Steve.UserControl.Paziente" TargetSchema="http://schemas.microsoft.com/intellisense/ie5" %>
 
-<div class="step">
-	<h5>Anagrafica Paziente</h5>
-	<div>
-		<asp:label id="lblMsg" Runat="server"></asp:label>
-	</div><asp:panel
-		      id="pnEditing" Runat="server" Visible="False">
-		<DIV class="bloccoForm">
-			<SPAN class="etichetta">Nome:</SPAN><asp:TextBox id="txtNome" Runat="server"></asp:TextBox>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichetta">Cognome:</SPAN><asp:TextBox id="txtCognome" Runat="server"></asp:TextBox>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichetta">Data di nascita:</SPAN><asp:TextBox id="txtDataNascita" Runat="server" MaxLength="10" Width="80"></asp:TextBox>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichetta">Professione:</SPAN><asp:TextBox id="txtProfesione" Runat="server"></asp:TextBox>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichetta">Indirizzo:</SPAN><asp:TextBox id="txtIndirizzo" Runat="server" Width="250"></asp:TextBox>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichetta">Città:</SPAN><asp:TextBox id="txtCitta" Runat="server"></asp:TextBox>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichetta">Provincia:</SPAN><asp:DropDownList id="ddlProv" Runat="server">
-				<asp:ListItem Value="--">--</asp:ListItem>
-			</asp:DropDownList>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichetta">CAP:</SPAN><asp:TextBox id="txtCap" Runat="server" MaxLength="5" Width="50"></asp:TextBox>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichetta">Telefono Fisso:</SPAN><asp:TextBox id="txtTel" Runat="server"></asp:TextBox>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichetta">Telefono Cell.:</SPAN><asp:TextBox id="txtCell" Runat="server"></asp:TextBox>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichetta">Email:</SPAN><asp:TextBox id="txtEmail" Runat="server"></asp:TextBox>
-		</DIV>
-		<DIV class="bloccoSubmit">
-			<asp:Button id="cmdSalva" onclick="Salva_Dati" Runat="server" CssClass="button" Text="Esegui >>"></asp:Button>
-		</DIV>
-	</asp:panel><asp:panel
-		            id="pnShow" Runat="server" Visible="False">
-		<DIV class="bloccoForm">
-			<SPAN class="etichettaShow">Nome:</SPAN> <asp:Label id="lblNome" Runat="server"></asp:Label>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichettaShow">Cognome:</SPAN> <asp:Label id="lblCognome" Runat="server"></asp:Label>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichettaShow">Data di nascita:</SPAN> <asp:Label id="lblDataNascita" Runat="server"></asp:Label>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichettaShow">Professione:</SPAN> <asp:Label id="lblProfessione" Runat="server"></asp:Label>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichettaShow">Indirizzo:</SPAN> <asp:Label id="lblIndirizzo" Runat="server"></asp:Label>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichettaShow">Città:</SPAN> <asp:Label id="lblCitta" Runat="server"></asp:Label>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichettaShow">Provincia:</SPAN> <asp:Label id="lblProv" Runat="server"></asp:Label>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichettaShow">CAP:</SPAN><asp:Label id="lblCap" Runat="server"></asp:Label>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichettaShow">Telefono Fisso:</SPAN> <asp:Label id="lblTel" Runat="server"></asp:Label>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichettaShow">Telefono Cell.:</SPAN> <asp:Label id="lblCell" Runat="server"></asp:Label>
-		</DIV>
-		<DIV class="bloccoForm">
-			<SPAN class="etichettaShow">Email.:</SPAN> <asp:Label id="lblEmail" Runat="server"></asp:Label>
-		</DIV>
-		<DIV class="contextLink">
-			<asp:HyperLink id="hlUpd" Runat="server">&gt;&gt; Modifica Anagrafica Paziente</asp:HyperLink>
-		</DIV>
-	</asp:panel>
+			<h4>Anagrafica Paziente</h4>
+			<div>
+				<asp:Label ID="lblMsg" runat="server"></asp:Label>
+			</div>
+
+
+<div class="container">
+	<div class="row">
+		<asp:Panel ID="pnEditing" runat="server" Visible="False">
+
+			<div class="col-md-8">
+				<div class="form-group">
+					<asp:Label AssociatedControlID="txtNome" runat="server">Nome:</asp:Label>
+					<asp:TextBox ID="txtNome" CssClass="form-control" runat="server"></asp:TextBox>
+				</div>
+				<div class="form-group">
+					<asp:Label AssociatedControlID="txtCognome" runat="server">Cognome:</asp:Label>
+					<asp:TextBox ID="txtCognome" CssClass="form-control" runat="server"></asp:TextBox>
+				</div>
+				<div class="form-group">
+					<asp:Label AssociatedControlID="txtDataNascita" runat="server">Data di nascita:</asp:Label>
+					<asp:TextBox ID="txtDataNascita" runat="server" CssClass="form-control" MaxLength="10" Width="100"></asp:TextBox>
+				</div>
+				<div class="form-group">
+					<asp:Label AssociatedControlID="txtProfesione" runat="server">Professione:</asp:Label>
+					<asp:TextBox ID="txtProfesione" CssClass="form-control" runat="server"></asp:TextBox>
+				</div>
+				<div class="form-group">
+					<asp:Label AssociatedControlID="txtIndirizzo" runat="server">Indirizzo:</asp:Label>
+					<asp:TextBox ID="txtIndirizzo" CssClass="form-control" runat="server"></asp:TextBox>
+				</div>
+				<div class="form-group">
+					<asp:Label AssociatedControlID="txtCitta" runat="server">Città:</asp:Label>
+					<asp:TextBox ID="txtCitta" CssClass="form-control" runat="server"></asp:TextBox>
+				</div>
+				<div class="form-group">
+					<asp:Label AssociatedControlID="ddlProv" runat="server">Provincia:</asp:Label>
+					<asp:DropDownList ID="ddlProv" CssClass="form-control" runat="server">
+						<asp:ListItem Value="--">--</asp:ListItem>
+					</asp:DropDownList>
+				</div>
+				<div class="form-group">
+					<asp:Label AssociatedControlID="txtCap" runat="server">CAP:</asp:Label>
+					<asp:TextBox ID="txtCap" CssClass="form-control" runat="server" MaxLength="5" Width="50"></asp:TextBox>
+				</div>
+				<div class="form-group">
+					<asp:Label AssociatedControlID="txtTel" runat="server">Telefono Fisso:</asp:Label>
+					<asp:TextBox ID="txtTel" CssClass="form-control" runat="server"></asp:TextBox>
+				</div>
+				<div class="form-group">
+					<asp:Label AssociatedControlID="txtCell" runat="server">Telefono Cell.:</asp:Label>
+					<asp:TextBox ID="txtCell" CssClass="form-control" runat="server"></asp:TextBox>
+				</div>
+				<div class="form-group">
+					<asp:Label AssociatedControlID="txtEmail" runat="server">Email:</asp:Label>
+					<asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
+				</div>
+
+				<asp:Button ID="cmdSalva" OnClick="Salva_Dati" runat="server" CssClass="btn btn-primary" Text="Esegui >>"></asp:Button>
+			</div>
+		</asp:Panel>
+
+		<asp:Panel ID="pnShow" runat="server" Visible="False">
+
+			<div class="col-md-4">
+				<div class="form-group">
+					<span class="etichettaShow">Nome:</span>
+			<asp:Label ID="lblNome" runat="server"></asp:Label>
+				</div>
+				<div class="form-group">
+					<span class="etichettaShow">Cognome:</span>
+			<asp:Label ID="lblCognome" runat="server"></asp:Label>
+				</div>
+				<div class="form-group">
+					<span class="etichettaShow">Data di nascita:</span>
+			<asp:Label ID="lblDataNascita" runat="server"></asp:Label>
+				</div>
+				<div class="form-group">
+					<span class="etichettaShow">Professione:</span>
+			<asp:Label ID="lblProfessione" runat="server"></asp:Label>
+				</div>
+				<div class="form-group">
+					<span class="etichettaShow">Indirizzo:</span>
+			<asp:Label ID="lblIndirizzo" runat="server"></asp:Label>
+				</div>
+				<div class="form-group">
+					<span class="etichettaShow">Città:</span>
+			<asp:Label ID="lblCitta" runat="server"></asp:Label>
+				</div>
+				<div class="form-group">
+					<span class="etichettaShow">Provincia:</span>
+			<asp:Label ID="lblProv" runat="server"></asp:Label>
+				</div>
+				<div class="form-group">
+					<span class="etichettaShow">CAP:</span>
+					<asp:Label ID="lblCap" runat="server"></asp:Label>
+				</div>
+				<div class="form-group">
+					<span class="etichettaShow">Telefono Fisso:</span>
+			<asp:Label ID="lblTel" runat="server"></asp:Label>
+				</div>
+				<div class="form-group">
+					<span class="etichettaShow">Telefono Cell.:</span>
+			<asp:Label ID="lblCell" runat="server"></asp:Label>
+				</div>
+				<div class="form-group">
+					<span class="etichettaShow">Email.:</span>
+			<asp:Label ID="lblEmail" runat="server"></asp:Label>
+				</div>
+				<div class="contextLink">
+					<asp:HyperLink ID="hlUpd" runat="server">&gt;&gt; Modifica Anagrafica Paziente</asp:HyperLink>
+				</div>
+			</div>
+		</asp:Panel>
+	</div>
 </div>
