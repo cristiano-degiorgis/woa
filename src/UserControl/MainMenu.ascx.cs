@@ -19,12 +19,20 @@ namespace Steve.UserControl
 			//hlHome.Attributes.Add("onMouseOut", "mOutItemMainMenu(this);");
 			//MenuContestuale1.Visible = false;
 
-			if (Request.Path.Contains("dettagli_paziente"))
+			var uc = Request.QueryString["uc"];
+			if (Request.Path.Contains("dettagli_paziente") 
+				|| uc == eSteps.Paziente.ToString() 
+				|| uc == eSteps.AnamnesiRemota.ToString())
 			{
 				liPaziente.Attributes["class"] = "active";
 			}
 
-			if (Request.Path.Contains("dettagli_consulto"))
+			if (Request.Path.Contains("dettagli_consulto")
+				|| uc == eSteps.Consulto.ToString()
+				|| uc == eSteps.AnamnesiProssima.ToString()
+				|| uc == eSteps.Esame.ToString()
+				|| uc == eSteps.Trattamento.ToString()
+				|| uc == eSteps.Valutazione.ToString())
 			{
 				liConsulto.Attributes["class"] += " active";
 			}
