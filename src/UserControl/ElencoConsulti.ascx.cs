@@ -79,10 +79,10 @@ namespace Steve.UserControl
 			var bHideAddAP = true;
 
 			if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem ||
-			    e.Item.ItemType == ListItemType.SelectedItem)
+					e.Item.ItemType == ListItemType.SelectedItem)
 			{
 				key = dg1.DataKeys[e.Item.ItemIndex].ToString();
-				dr = _Dt1.Rows.Find(new object[] {key});
+				dr = _Dt1.Rows.Find(new object[] { key });
 
 				if (dr["ID_consulto"] == DBNull.Value)
 					bHideAddAP = false;
@@ -91,8 +91,13 @@ namespace Steve.UserControl
 					e.Item.Cells[_COL_PROBLEMA_INIZIALE].Text = dr["problema_iniziale"].ToString().Substring(0, 100) + "...";
 
 				if (bHideAddAP)
+				{
 					foreach (Control ctrl in e.Item.Cells[_COL_ADD_AP].Controls)
-						e.Item.Cells[_COL_ADD_AP].Controls.Remove(ctrl);
+					{
+						//e.Item.Cells[_COL_ADD_AP].Controls.Remove(ctrl);
+						ctrl.Visible = false;
+					}
+				}
 			}
 		}
 
