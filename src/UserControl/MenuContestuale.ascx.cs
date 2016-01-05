@@ -26,23 +26,11 @@ namespace Steve.UserControl
 				rptLinks.DataSource = _Links;
 				rptLinks.DataBind();
 
-				divMenuContestuale.Visible = true;
 
-
-//				foreach( Object obj in arl ){
-//					hl = new HyperLink();
-//					ht = (Hashtable) obj;
-//					hl.NavigateUrl = ht["Url"].ToString();
-//					hl.Text = ht["Text"].ToString();
-//
-//					pnMenuContestuale.Controls.Add( new LiteralControl("  [") );
-//					pnMenuContestuale.Controls.Add(hl);
-//					pnMenuContestuale.Controls.Add( new LiteralControl("]  ") );
-//				}
 			}
 			else
 			{
-				divMenuContestuale.Visible = false;
+				//divMenuContestuale.Visible = false;
 			}
 		}
 

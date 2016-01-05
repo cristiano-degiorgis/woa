@@ -40,24 +40,6 @@ namespace Steve.App {
         protected global::Steve.UserControl.MainMenu MainMenu1;
         
         /// <summary>
-        /// Paziente1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Steve.UserControl.Paziente Paziente1;
-        
-        /// <summary>
-        /// ElencoConsulti1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Steve.UserControl.ElencoConsulti ElencoConsulti1;
-        
-        /// <summary>
         /// ElencoEsami1 control.
         /// </summary>
         /// <remarks>
@@ -83,5 +65,23 @@ namespace Steve.App {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Steve.UserControl.ElencoValutazioni ElencoValutazioni1;
+        
+        /// <summary>
+        /// Paziente1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Steve.UserControl.Paziente Paziente1;
+        
+        /// <summary>
+        /// ElencoConsulti1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Steve.UserControl.ElencoConsulti ElencoConsulti1;
     }
 }

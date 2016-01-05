@@ -1,12 +1,18 @@
 <%@ Control Language="c#" AutoEventWireup="True" CodeBehind="MenuContestuale.ascx.cs" Inherits="Steve.UserControl.MenuContestuale" TargetSchema="http://schemas.microsoft.com/intellisense/ie5" %>
-<div id="divMenuContestuale" class="MenuContestuale" runat="server">
+
 	<asp:Repeater ID="rptLinks" runat="server">
+		<HeaderTemplate>
+			<ul class="dropdown-menu">
+		</HeaderTemplate>
 		<ItemTemplate>
-			<div class="item">
+			<li>
 				<a href="<%# DataBinder.Eval(Container.DataItem, "Url") %>">
 					<%# DataBinder.Eval(Container.DataItem, "Text") %>
 				</a>
-			</div>
+			</li>
 		</ItemTemplate>
+		<FooterTemplate>
+			</ul>
+		</FooterTemplate>
 	</asp:Repeater>
-</div>
+

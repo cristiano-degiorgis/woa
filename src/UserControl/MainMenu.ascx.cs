@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 
 namespace Steve.UserControl
 {
@@ -7,6 +8,7 @@ namespace Steve.UserControl
 	/// </summary>
 	public partial class MainMenu : BaseUserControl
 	{
+		
 		protected void Page_Load(object sender, EventArgs e)
 		{
 		}
@@ -15,6 +17,17 @@ namespace Steve.UserControl
 		{
 			//hlHome.Attributes.Add("onMouseOver", "mOvItemMainMenu(this);");
 			//hlHome.Attributes.Add("onMouseOut", "mOutItemMainMenu(this);");
+			//MenuContestuale1.Visible = false;
+
+			if (Request.Path.Contains("dettagli_paziente"))
+			{
+				liPaziente.Attributes["class"] = "active";
+			}
+
+			if (Request.Path.Contains("dettagli_consulto"))
+			{
+				liConsulto.Attributes["class"] += " active";
+			}
 
 			if (Paziente1 != null)
 			{
@@ -27,8 +40,39 @@ namespace Steve.UserControl
 			if (IdConsulto > 0)
 			{
 				hlConsulto.NavigateUrl = string.Format("~/App/dettagli_consulto.aspx?id_consulto={0}", IdConsulto);
-				//hlConsulto.Attributes.Add("onMouseOver", "mOvItemMainMenu(this);");
-				//hlConsulto.Attributes.Add("onMouseOut", "mOutItemMainMenu(this);");
+
+				var arlLinks = new ArrayList();
+				LinkContestuale lc;
+				lc =
+					new LinkContestuale(string.Format(
+						"{0}/App/dettagli_consulto.aspx?id_consulto={1}", Request.ApplicationPath, IdConsulto),
+						"Dettagli");
+				arlLinks.Add(lc);
+
+				lc =
+					new LinkContestuale(
+						string.Format("{3}/App/master.aspx?chiave=-1&azione={1}&uc={2}", -1, eAzioni.Insert, eSteps.Esame,
+							Request.ApplicationPath), "Add Esame");
+				arlLinks.Add(lc);
+
+				lc =
+					new LinkContestuale(
+						string.Format("{3}/App/master.aspx?chiave=-1&azione={1}&uc={2}", -1, eAzioni.Insert, eSteps.Trattamento,
+							Request.ApplicationPath), "Add Trattamento");
+				arlLinks.Add(lc);
+
+				lc =
+					new LinkContestuale(
+						string.Format("{3}/App/master.aspx?chiave=-1&azione={1}&uc={2}", -1, eAzioni.Insert, eSteps.Valutazione,
+							Request.ApplicationPath), "Add Valutazione");
+				arlLinks.Add(lc);
+
+				MenuContestuale1.Visible = true;
+				MenuContestuale1.Links = arlLinks;
+			}
+			else
+			{
+				hlConsulto.Visible = false;
 			}
 				//hlConsulto.NavigateUrl = String.Format( "~/App/master.aspx?chiave={0}&azione={1}&uc={2}", IdConsulto, eAzioni.Show, eSteps.Consulto );
 		}

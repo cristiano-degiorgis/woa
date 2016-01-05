@@ -291,10 +291,27 @@
       <SubType>Form</SubType>
     </Content>
     <Content Include="App\popup\Calendar.aspx" />
+    <Content Include="bootstrap-grayscale\css\bootstrap.css" />
+    <Content Include="bootstrap-grayscale\css\bootstrap.min.css" />
+    <Content Include="bootstrap-grayscale\css\grayscale.css" />
+    <Content Include="bootstrap-grayscale\font-awesome\css\font-awesome.css" />
+    <Content Include="bootstrap-grayscale\font-awesome\css\font-awesome.min.css" />
+    <Content Include="bootstrap-grayscale\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="bootstrap-grayscale\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap-grayscale\img\downloads-bg.jpg" />
+    <Content Include="bootstrap-grayscale\img\intro-bg.jpg" />
+    <Content Include="bootstrap-grayscale\img\map-marker.png" />
+    <Content Include="bootstrap-grayscale\index.html" />
+    <Content Include="bootstrap-grayscale\js\bootstrap.js" />
+    <Content Include="bootstrap-grayscale\js\bootstrap.min.js" />
+    <Content Include="bootstrap-grayscale\js\grayscale.js" />
+    <Content Include="bootstrap-grayscale\js\jquery.easing.min.js" />
+    <Content Include="bootstrap-grayscale\js\jquery.js" />
     <Content Include="bootstrap\css\bootstrap-theme.css" />
     <Content Include="bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="bootstrap\css\bootstrap.css" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\css\woa.css" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="bootstrap\js\bootstrap.js" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
@@ -433,6 +450,47 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bootstrap\img\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrap-grayscale\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="bootstrap-grayscale\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="bootstrap-grayscale\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="bootstrap-grayscale\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\bordered-pulled.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\core.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\fixed-width.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\font-awesome.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\icons.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\larger.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\list.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\mixins.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\path.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\rotated-flipped.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\spinning.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\stacked.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\less\variables.less" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\font-awesome.scss" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\_core.scss" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\_icons.scss" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\_larger.scss" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\_list.scss" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\_mixins.scss" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\_path.scss" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\_spinning.scss" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\_stacked.scss" />
+    <Content Include="bootstrap-grayscale\font-awesome\scss\_variables.scss" />
+    <Content Include="bootstrap-grayscale\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap-grayscale\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap-grayscale\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap-grayscale\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="bootstrap-grayscale\less\grayscale.less" />
+    <Content Include="bootstrap-grayscale\less\mixins.less" />
+    <Content Include="bootstrap-grayscale\less\variables.less" />
+    <Content Include="bootstrap-grayscale\LICENSE" />
+    <Content Include="bootstrap-grayscale\README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

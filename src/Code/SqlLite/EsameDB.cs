@@ -33,9 +33,9 @@ namespace Steve.SqlLite
 				{
 					sb.Append("INSERT INTO ");
 					sb.Append("esame");
-					sb.Append("( data, descrizione, tipo, id_paziente, id_consulto, ID )");
+					sb.Append("( data, descrizione, tipo, id_paziente, id_consulto)");
 					sb.Append(" VALUES ");
-					sb.Append("( @data, @descrizione, @tipo, @id_paziente, @id_consulto, @ID )");
+					sb.Append("( @data, @descrizione, @tipo, @id_paziente, @id_consulto)");
 
 					int newID;
 					SqlLiteHelper.Insert(sb.ToString(), arParams, out newID);

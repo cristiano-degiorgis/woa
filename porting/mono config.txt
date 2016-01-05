@@ -40,6 +40,10 @@ This puts the mod_mono.so in correct Apache dir and the mod_mono.conf file. To i
  Include /etc/apache2/mod_mono.conf
  MonoServerPath /Library/Frameworks/Mono.framework/Versions/Current/bin/mod-mono-server4 (mod-mono-server o mod-mono-server2 non va....)
  
+ ------ mono xsp
+ xsp --root="C:\Temp\mono" --applications="/woa:woa"
+ ----------- mono xsp
+ 
  ---- httpd.conf ------
  
  # mod_mono_configuration                                                  

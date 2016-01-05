@@ -13,6 +13,15 @@ namespace Steve.UserControl {
     public partial class MainMenu {
         
         /// <summary>
+        /// liHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liHome;
+        
+        /// <summary>
         /// hlHome control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace Steve.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlHome;
+        
+        /// <summary>
+        /// liPaziente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liPaziente;
         
         /// <summary>
         /// hlPaziente control.
@@ -31,6 +49,15 @@ namespace Steve.UserControl {
         protected global::System.Web.UI.WebControls.HyperLink hlPaziente;
         
         /// <summary>
+        /// liConsulto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liConsulto;
+        
+        /// <summary>
         /// hlConsulto control.
         /// </summary>
         /// <remarks>
@@ -38,5 +65,14 @@ namespace Steve.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlConsulto;
+        
+        /// <summary>
+        /// MenuContestuale1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Steve.UserControl.MenuContestuale MenuContestuale1;
     }
 }

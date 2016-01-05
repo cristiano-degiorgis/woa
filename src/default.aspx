@@ -9,8 +9,10 @@
 	<title>W.O.A.</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/woa/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/woa/bootstrap/css/woa.css">
 	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="/woa/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="/woa/bootstrap/css/woa.css">
 </head>
 <body>
 

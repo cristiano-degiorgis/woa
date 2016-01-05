@@ -1,41 +1,44 @@
-<%@ Control Language="c#" AutoEventWireup="True" Codebehind="Trattamento.ascx.cs" Inherits="Steve.UserControl.Trattamento" TargetSchema="http://schemas.microsoft.com/intellisense/ie5"%>
+<%@ Control Language="c#" AutoEventWireup="True" CodeBehind="Trattamento.ascx.cs" Inherits="Steve.UserControl.Trattamento" TargetSchema="http://schemas.microsoft.com/intellisense/ie5" %>
 
-<div class="step">
+<div class="panel panel-default">
+	<div class="panel-heading">Trattamento</div>
+	<div class="panel-body">
 
-	<h5>Trattamento</h5>
-
-	<div>
-		<asp:Label ID="lblMsg" Runat="server"></asp:Label>
-	</div>
+		<div>
+			<asp:Label ID="lblMsg" runat="server"></asp:Label>
+		</div>
 
 
-	<asp:Panel ID="pnEditing" Runat="server" Visible="False">
-		<DIV class="bloccoForm">Data: <ASP:TEXTBOX id="txtData" Runat="server" Width="80" MaxLength="10" ReadOnly="False"></ASP:TEXTBOX>
-		</DIV>
-		<DIV class="bloccoForm">Descrizione:<BR><ASP:TEXTBOX id="txtDescrizione" Runat="server" Width="500" Height="200" TextMode="MultiLine"></ASP:TEXTBOX>
-		</DIV>
-		<DIV class="bloccoSubmit">
-			<ASP:BUTTON id="cmdSalva" onclick="Salva_Dati" CssClass="button" Runat="server"></ASP:BUTTON>
-		</DIV>
-	</asp:Panel>
-
-	<asp:Panel ID="pnShow" Runat="server" Visible="False">
-		<DIV class="bloccoForm">
-			<span class="etichettaShow">Data:</span> 
-			<asp:Label id="lblData" Runat="server"></asp:Label>
-		</DIV>
-		<DIV class="bloccoForm">
-			<span class="etichettaShow">Descrizione:</span><div class="csMemo">
-				<asp:Label id="lblDescrizione" Runat="server"></asp:Label>
+		<asp:Panel ID="pnEditing" runat="server" Visible="False">
+			<div class="form-group">
+				<asp:Label AssociatedControlID="txtData" runat="server">Data:</asp:Label>
+				<asp:TextBox ID="txtData" runat="server" CssClass="form-control" Width="100" MaxLength="10" ReadOnly="False"></asp:TextBox>
 			</div>
-		</DIV>
-		<DIV class="contextLink">
-			<asp:HyperLink id="hlUpd" Runat="server">&gt;&gt; Modifica Trattamento</asp:HyperLink>
-		</DIV>
-	</asp:Panel>
+			<div class="form-group">
+				<asp:Label AssociatedControlID="txtDescrizione" runat="server">Descrizione:</asp:Label>
+				<asp:TextBox ID="txtDescrizione" runat="server" CssClass="form-control" Width="500" Height="200" TextMode="MultiLine"></asp:TextBox>
+			</div>
+				<asp:Button ID="cmdSalva" OnClick="Salva_Dati" CssClass="btn btn-primary" runat="server"></asp:Button>
+		</asp:Panel>
 
-	<asp:Panel ID="pnIsNull" Runat="server" Visible="False">
-		<asp:HyperLink id="hlAdd" Runat="server">Inserisci Trattamento</asp:HyperLink>
-	</asp:Panel>
+		<asp:Panel ID="pnShow" runat="server" Visible="False">
+			<div class="form-group">
+				<span class="etichettaShow">Data:</span>
+				<asp:Label ID="lblData" runat="server"></asp:Label>
+			</div>
+			<div class="form-group">
+				<span class="etichettaShow">Descrizione:</span><div class="csMemo">
+					<asp:Label ID="lblDescrizione" runat="server"></asp:Label>
+				</div>
+			</div>
+			<div class="contextLink">
+				<asp:HyperLink ID="hlUpd" runat="server">&gt;&gt; Modifica Trattamento</asp:HyperLink>
+			</div>
+		</asp:Panel>
 
+		<asp:Panel ID="pnIsNull" runat="server" Visible="False">
+			<asp:HyperLink ID="hlAdd" runat="server">Inserisci Trattamento</asp:HyperLink>
+		</asp:Panel>
+
+	</div>
 </div>

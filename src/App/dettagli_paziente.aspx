@@ -17,6 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="/woa/bootstrap/css/bootstrap.min.css">
 	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="/woa/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="/woa/bootstrap/css/woa.css">
 </head>
 <body>
 
@@ -24,7 +25,6 @@
 		<uc1:Testata ID="Testata1" runat="server"></uc1:Testata>
 		<uc1:MainMenu ID="MainMenu1" runat="server"></uc1:MainMenu>
 
-		<h4>Dettagli Paziente</h4>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-3">
@@ -38,6 +38,7 @@
 					<uc1:ElencoConsulti ID="ElencoConsulti1" runat="server"></uc1:ElencoConsulti>
 				</div>
 			</div>
+		</div>
 	</form>
 
 	<script src="/woa/js/jquery-1.11.3.min.js"></script>

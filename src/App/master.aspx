@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="/woa/bootstrap/css/bootstrap.min.css">
 	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="/woa/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="/woa/bootstrap/css/woa.css">
 </head>
 <body>
 	<form id="Form1" method="post" runat="server">
@@ -23,7 +24,7 @@
 		<uc1:MainMenu ID="MainMenu1" runat="server"></uc1:MainMenu>
 		<uc1:MenuContestuale ID="MenuContestuale1" runat="server"></uc1:MenuContestuale>
 
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8">
 					<asp:Panel ID="pnLoadControl" runat="server"></asp:Panel>
