@@ -9,14 +9,15 @@
 <html>
 <head>
 	<title>W.O.A.</title>
-	<%--<link href="/woa/css/main.css" rel="stylesheet" type="text/css">
-	<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">--%>
-	<script language="javascript" type="text/javascript" src="/woa/js/global.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/woa/bootstrap/css/bootstrap.min.css">
 	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="/woa/bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="/woa/bootstrap/css/woa.css">
+	<link rel="stylesheet" href="/woa/jquery/jquery-ui.min.css">
+	<script src="/woa/jquery/jquery-1.11.3.min.js"></script>
+	<script src="/woa/jquery/jquery-ui.min.js"></script>
+	<script src="/woa/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<form id="Form1" method="post" runat="server">
@@ -36,7 +37,6 @@
 		</div>
 	</form>
 
-	<script src="/woa/js/jquery-1.11.3.min.js"></script>
-	<script src="/woa/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>

@@ -13,6 +13,12 @@
 			<div class="form-group">
 				<asp:Label AssociatedControlID="txtData" runat="server">Data:</asp:Label>
 				<asp:TextBox ID="txtData" runat="server" CssClass="form-control" Width="100" MaxLength="10" ReadOnly="False"></asp:TextBox>
+<script>
+	$(function () {
+		$("#<%= txtData.ClientID %>").datepicker({ dateFormat: "dd/mm/yy" });
+		$("#<%= txtData.ClientID %>").datepicker("setDate", "<%= txtData.Text %>");
+});
+</script>			
 			</div>
 			<div class="form-group">
 				<asp:Label AssociatedControlID="txtDescrizione" runat="server">Descrizione:</asp:Label>

@@ -40,7 +40,7 @@
 			</div>
 		</div>
 	</form>
-	<script src="/woa/js/jquery-1.11.3.min.js"></script>
+	<script src="/woa/jquery/jquery-1.11.3.min.js"></script>
 	<script src="/woa/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

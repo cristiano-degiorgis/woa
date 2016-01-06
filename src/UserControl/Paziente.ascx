@@ -24,6 +24,12 @@
 						<div class="form-group">
 							<asp:Label AssociatedControlID="txtDataNascita" runat="server">Data di nascita:</asp:Label>
 							<asp:TextBox ID="txtDataNascita" runat="server" CssClass="form-control" MaxLength="10" Width="100"></asp:TextBox>
+<script>
+	$(function () {
+		$("#<%= txtDataNascita.ClientID %>").datepicker({ dateFormat: "dd/mm/yy" });
+		$("#<%= txtDataNascita.ClientID %>").datepicker("setDate", "<%= txtDataNascita.Text %>");
+});
+</script>
 						</div>
 						<div class="form-group">
 							<asp:Label AssociatedControlID="txtProfesione" runat="server">Professione:</asp:Label>

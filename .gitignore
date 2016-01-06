@@ -3,6 +3,7 @@
 
 # WP-CUSTOM
 tools/
+builds/
 
 # User-specific files
 *.suo

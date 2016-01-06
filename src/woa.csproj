@@ -125,13 +125,6 @@
     <Compile Include="App\master.aspx.designer.cs">
       <DependentUpon>master.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App\popup\Calendar.aspx.cs">
-      <DependentUpon>Calendar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="App\popup\Calendar.aspx.designer.cs">
-      <DependentUpon>Calendar.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -290,7 +283,6 @@
     <Content Include="App\master.aspx">
       <SubType>Form</SubType>
     </Content>
-    <Content Include="App\popup\Calendar.aspx" />
     <Content Include="bootstrap-grayscale\css\bootstrap.css" />
     <Content Include="bootstrap-grayscale\css\bootstrap.min.css" />
     <Content Include="bootstrap-grayscale\css\grayscale.css" />
@@ -315,20 +307,28 @@
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="bootstrap\js\bootstrap.js" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
-    <Content Include="css\calendar.css" />
-    <Content Include="css\main.css" />
     <Content Include="default.aspx">
       <SubType>Form</SubType>
     </Content>
     <Content Include="Global.asax">
       <SubType>Component</SubType>
     </Content>
-    <Content Include="img\icon-calendar.gif" />
-    <Content Include="js\calendar.js" />
-    <Content Include="js\global.js">
-      <SubType>UserControl</SubType>
-    </Content>
-    <Content Include="js\jquery-1.11.3.min.js" />
+    <Content Include="jquery\images\ui-icons_444444_256x240.png" />
+    <Content Include="jquery\images\ui-icons_555555_256x240.png" />
+    <Content Include="jquery\images\ui-icons_777620_256x240.png" />
+    <Content Include="jquery\images\ui-icons_777777_256x240.png" />
+    <Content Include="jquery\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="jquery\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="jquery\index.html" />
+    <Content Include="jquery\jquery-1.11.3.min.js" />
+    <Content Include="jquery\jquery-ui.css" />
+    <Content Include="jquery\jquery-ui.js" />
+    <Content Include="jquery\jquery-ui.min.css" />
+    <Content Include="jquery\jquery-ui.min.js" />
+    <Content Include="jquery\jquery-ui.structure.css" />
+    <Content Include="jquery\jquery-ui.structure.min.css" />
+    <Content Include="jquery\jquery-ui.theme.css" />
+    <Content Include="jquery\jquery-ui.theme.min.css" />
     <Content Include="TO_DO.txt" />
     <Content Include="UserControl\AnamnesiProssima.ascx">
       <SubType>UserControl</SubType>
@@ -386,9 +386,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="App\master.aspx.resx">
       <DependentUpon>master.aspx.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App\popup\Calendar.aspx.resx">
-      <DependentUpon>Calendar.aspx.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="default.aspx.resx">
       <DependentUpon>default.aspx.cs</DependentUpon>
@@ -492,6 +489,9 @@
     <Content Include="bootstrap-grayscale\LICENSE" />
     <Content Include="bootstrap-grayscale\README.md" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="LocalFS.pubxml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent />
@@ -516,4 +516,5 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <!--<Target Name="GatherAllFilesToPublish"></Target>-->
 </Project>

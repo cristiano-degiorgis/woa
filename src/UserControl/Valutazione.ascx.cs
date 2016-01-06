@@ -10,12 +10,6 @@ namespace Steve.UserControl
 	public partial class Valutazione : BaseUserControl, IBaseUserControl
 	{
 		private Delegate _DelMenuContestuale;
-		protected DropDownList ddlTipo;
-		protected Label lblData;
-		protected Label lblDescrizione;
-		protected Label lblTipo;
-		protected TextBox txtData;
-		protected TextBox txtDescrizione;
 
 		public Delegate GestioneMenuContestuale
 		{
@@ -96,20 +90,6 @@ namespace Steve.UserControl
 				lblMsg.CssClass = "msgOK";
 
 				pnEditing.Visible = false;
-
-//				if(Azione == eAzioni.Insert){
-//					// Richiamo con il Delegato il metodo della pagina padre per gestire il menu contestuale
-//					System.Collections.ArrayList arl = new System.Collections.ArrayList();
-//					System.Collections.Hashtable ht = new System.Collections.Hashtable();
-//					ht["Url"] = String.Format( "~/App/master.aspx?chiave={0}&azione={1}&uc={2}", -1, eAzioni.Insert, eSteps.Valutazione );
-//					ht["Text"] = "Add Valutazione";
-//					arl.Add(ht);
-//
-//					Object[] aObj = new Object[1];
-//					aObj[0] = arl;
-//			
-//					_DelMenuContestuale.DynamicInvoke(aObj);
-//				}
 			}
 			else
 			{
@@ -122,9 +102,6 @@ namespace Steve.UserControl
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-//			if(!Page.IsPostBack)
-//				PopolaOggettiForm();
-
 			CaricaDati();
 		}
 
