@@ -4,6 +4,8 @@
 # WP-CUSTOM
 tools/
 builds/
+exports/
+releases/
 
 # User-specific files
 *.suo

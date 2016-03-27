@@ -1,6 +1,13 @@
 using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
+using CsvHelper;
 using Steve.SqlLite;
 using Steve.UserControl;
 
@@ -40,6 +47,83 @@ namespace Steve
 			ElencoPazienti1.Carica();
 			pnScegli.Visible = true;
 		}
+
+		protected void Export_Pazienti(object sender, EventArgs e)
+		{
+			var pazienti = PazienteDB.PazientiList();
+			//var pathParts = new List<string>(Server.MapPath("~/").Split(Path.DirectorySeparatorChar));
+			//pathParts.RemoveAt(pathParts.Count - 1);
+			//pathParts.RemoveAt(pathParts.Count - 1);
+			//pathParts.Add("exports");
+			//pathParts.Add("export_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm") + ".csv");
+			var fileName = "export_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm") + ".csv";
+			byte[] buffer;
+			//var filePath = String.Join(Path.DirectorySeparatorChar.ToString(), pathParts.ToArray());
+			//using (StreamWriter textWriter = File.CreateText(filePath))
+			using (var myMemoryStream = new MemoryStream())
+			using (StreamWriter textWriter = new StreamWriter(myMemoryStream, Encoding.ASCII))
+			{
+				var csv = new CsvWriter(textWriter);
+				var columnNames = new[] { "ID", "nome", "cognome", "email", "telefono", "cellulare" };
+				foreach (var columnName in columnNames)
+				{
+					csv.WriteField(columnName);
+				}
+				csv.NextRecord();
+
+				foreach (DataRow row in pazienti.Rows)
+				{
+					foreach (var columnName in columnNames)
+					{
+						var val = row[columnName].ToString().Trim();
+						if (columnName == "cellulare")
+						{
+							val = ConvertToCellNumberOrEmpty(val, row["telefono"].ToString().Trim());
+						}
+						csv.WriteField(val);
+					}
+					csv.NextRecord();
+				}
+
+				textWriter.Flush();
+				buffer = myMemoryStream.ToArray();
+			}
+
+			Response.Clear();
+			Response.ContentType = "text/csv";
+			Response.AddHeader("Content-Disposition", "attachment; filename=" + fileName);
+			Response.BinaryWrite(buffer);
+			// myMemoryStream.WriteTo(Response.OutputStream); //works too
+			Response.Flush();
+			Response.Close();
+			Response.End();
+		}
+
+		private static Regex CellNumeRegex = new Regex(@"^((00|\+)\d{2}[\. ]??)??3\d{2}[\. ]??\d{6,7}([\,\;]((00|\+)\d{2}[\. ]??)??3\d{2}[\. ]??\d{6,7})*$");
+		private static bool IsCellNumber(string input)
+		{
+			return CellNumeRegex.IsMatch(input);
+		}
+
+		private static string ConvertToCellNumberOrEmpty(string cellulare, string telefono)
+		{
+			var input = IsCellNumber(cellulare) ? 
+				cellulare 
+				: IsCellNumber(telefono) ? 
+					telefono 
+					: String.Empty;
+
+			if (string.IsNullOrEmpty(input)) return String.Empty;
+
+			if (!input.StartsWith("+"))
+			{
+				input = "+39" + input;
+			}
+
+			return input;
+		}
+
+
 
 		protected void Cerca_Paziente(object sender, EventArgs e)
 		{

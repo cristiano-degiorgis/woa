@@ -45,6 +45,8 @@
 				<div class="col-md-8">
 					<asp:Button ID="cmdShowPazienti" OnClick="Show_Pazienti" runat="server"
 						Text="Mostra elenco completo pazienti" CssClass="btn btn-info"></asp:Button>
+					<asp:Button ID="cmdExportPazienti" OnClick="Export_Pazienti" runat="server"
+						Text="Esporta elenco completo pazienti" CssClass="btn btn-info"></asp:Button>
 					<asp:Panel ID="pnScegli" Visible="False" runat="server">
 						<uc1:ElencoPazienti ID="ElencoPazienti1" runat="server"></uc1:ElencoPazienti>
 					</asp:Panel>
